@@ -1,0 +1,22 @@
+# Core A2A library - comprehensive python implementation
+python-a2a>=0.5.10
+
+# x402 payment protocol (Coinbase)
+x402>=0.2.0
+
+# x402 A2A Extension (Google/Coinbase)
+# Direct installation from GitHub (not available on PyPI)
+x402-a2a @ git+https://github.com/google-agentic-commerce/a2a-x402.git#subdirectory=python/x402_a2a
+
+# Ethereum wallet and signing
+eth-account>=0.13.7
+
+# HTTP client
+httpx>=0.28.1
+
+# Data validation
+pydantic>=2.0.0
+
+# Testing
+pytest>=8.4.1
+pytest-asyncio>=1.1.0
