@@ -416,7 +416,6 @@ See [tests/README.md](tests/README.md) for comprehensive testing documentation.
 - Enable comprehensive audit logging
 
 **Recommended**:
-- Add HTTP header extension activation (requires python-a2a changes)
 - Implement proper authentication and authorization
 - Add monitoring and alerting for payment failures
 - Set up disaster recovery procedures
@@ -457,4 +456,4 @@ MIT
 
 ### Frameworks
 - [python-a2a](https://github.com/themanojdesai/python-a2a) - Python implementation of Google's A2A protocol (by themanojdesai)
-- [x402-a2a](https://github.com/google-agentic-commerce/a2a-x402/tree/main/python) - Official x402 Python package (Google/Coinbase)
+- [x402-a2a](https://github.com/google-agentic-commerce/a2a-x402/tree/main/python) - Official x402-a2a Python package (Google/Coinbase)
