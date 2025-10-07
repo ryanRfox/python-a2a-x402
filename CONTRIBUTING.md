@@ -1,4 +1,4 @@
-# Contributing to python-a2a-x402-mvp
+# Contributing to python-a2a-x402
 
 Thank you for your interest in contributing! This document provides guidelines for development, testing, and submitting contributions.
 
@@ -24,8 +24,8 @@ Thank you for your interest in contributing! This document provides guidelines f
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/ryanRfox/python-a2a-x402-mvp.git
-cd python-a2a-x402-mvp
+git clone https://github.com/ryanRfox/python-a2a-x402.git
+cd python-a2a-x402
 ```
 
 2. **Create and activate virtual environment**
@@ -53,7 +53,7 @@ python -m pytest tests/ -v
 ## Project Structure
 
 ```
-python-a2a-x402-mvp/
+python-a2a-x402/
 ├── src/                        # Source code
 │   ├── merchant_server.py      # MerchantServer extending A2AServer
 │   ├── x402_middleware.py      # Payment middleware for python-a2a
@@ -478,4 +478,4 @@ By contributing, you agree that your contributions will be licensed under the Ap
 - Help newcomers learn
 - Assume positive intent
 
-Thank you for contributing to python-a2a-x402-mvp! 🎉
+Thank you for contributing to python-a2a-x402! 🎉

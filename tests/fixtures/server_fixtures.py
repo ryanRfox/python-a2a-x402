@@ -17,15 +17,17 @@ from facilitator import MockFacilitator
 logger = logging.getLogger(__name__)
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def mock_facilitator():
     """
     Provide a mock payment facilitator.
 
+    Module scope to share across tests.
+
     Returns:
         MockFacilitator: Configured to verify and settle all payments
     """
-    logger.info("Creating MockFacilitator")
+    logger.info("Creating MockFacilitator (module scope)")
     facilitator = MockFacilitator(is_valid=True, is_settled=True)
     logger.debug(f"  facilitator_type: {type(facilitator).__name__}")
     logger.debug(f"  is_valid: {facilitator._is_valid}")
@@ -33,10 +35,12 @@ def mock_facilitator():
     return facilitator
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def merchant_server(mock_facilitator):
     """
     Provide a MerchantServer instance.
+
+    Module scope to share server across tests and avoid port conflicts.
 
     Args:
         mock_facilitator: Injected facilitator fixture
@@ -44,7 +48,7 @@ def merchant_server(mock_facilitator):
     Returns:
         MerchantServer: Configured with test wallet and facilitator
     """
-    logger.info("Creating MerchantServer")
+    logger.info("Creating MerchantServer (module scope)")
 
     # Use valid checksummed Ethereum address for testing
     test_wallet = "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B"
@@ -62,12 +66,13 @@ def merchant_server(mock_facilitator):
     return server
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def running_server(merchant_server):
     """
     Provide a running MerchantServer in a background thread.
 
     Uses python-a2a's run_server() function to start Flask app.
+    Server runs once per test module to avoid port conflicts.
 
     Args:
         merchant_server: Injected server fixture
@@ -75,7 +80,7 @@ def running_server(merchant_server):
     Yields:
         tuple: (server, base_url)
     """
-    logger.info("Starting MerchantServer in background thread")
+    logger.info("Starting MerchantServer in background thread (module scope)")
 
     port = merchant_server.port
     base_url = f"http://127.0.0.1:{port}"
@@ -99,8 +104,8 @@ def running_server(merchant_server):
     # Wait for server to be ready (longer wait for Flask startup)
     time.sleep(1.5)
 
-    logger.info("Server started and ready")
+    logger.info("Server started and ready for all tests in module")
 
     yield merchant_server, base_url
 
-    logger.info("Test completed, server will be cleaned up")
+    logger.info("All tests completed, server will shut down")

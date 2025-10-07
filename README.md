@@ -1,10 +1,10 @@
-# python-a2a-x402-mvp
+# python-a2a-x402
 
-A spec-compliant implementation of the x402 payment protocol extension for python-a2a, enabling cryptocurrency payments in agent-to-agent commerce.
+A spec-compliant implementation of the x402 payment protocol extension for python-a2a, enabling digital payments in agent-to-agent commerce.
 
 ## Overview
 
-This project implements the [x402 payment protocol specification](https://github.com/google-agentic-commerce/a2a-x402/spec/v0.1/spec.md) (~95% spec compliance) using python-a2a (by themanojdesai). It demonstrates how AI agents can autonomously negotiate and execute cryptocurrency payments using EIP-3009 transfer authorization.
+This project implements the [x402 payment protocol specification](https://github.com/google-agentic-commerce/a2a-x402/spec/v0.1/spec.md) using [python-a2a](https://github.com/themanojdesai/python-a2a). It demonstrates how AI agents can autonomously negotiate and execute digital payments using EIP-3009 transfer authorization.
 
 ### Key Components
 
@@ -15,8 +15,7 @@ This project implements the [x402 payment protocol specification](https://github
 
 ### Spec Compliance
 
-✅ **Implemented (100% of core spec)**:
-- **HTTP header extension activation** (Spec Section 7)
+- HTTP header extension activation (Spec Section 7)
   - Client sends `X-A2A-Extensions` header with extension URI
   - Server echoes header in response to confirm activation
   - Uses x402-a2a package helpers for header checking
@@ -140,8 +139,8 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed sequence diagrams and functi
 
 ```bash
 # Clone repository
-git clone https://github.com/ryanRfox/python-a2a-x402-mvp.git
-cd python-a2a-x402-mvp
+git clone https://github.com/ryanRfox/python-a2a-x402.git
+cd python-a2a-x402
 
 # Create virtual environment
 python3 -m venv venv
@@ -228,7 +227,6 @@ python src/payment_client.py --server http://localhost:5001
 
 **Terminal 3 - Run Tests (while demo runs):**
 ```bash
-# Integration tests use port 5555 (no conflict with port 5001)
 python -m pytest tests/integration/ -v
 ```
 
@@ -239,7 +237,7 @@ Then try commands like:
 ## Project Structure
 
 ```
-python-a2a-x402-mvp/
+python-a2a-x402/
 ├── src/                           # Source code
 │   ├── merchant_server.py         # MerchantServer extending A2AServer
 │   ├── x402_middleware.py         # Payment middleware for python-a2a
@@ -261,20 +259,12 @@ python-a2a-x402-mvp/
 │   │   └── test_http_headers.py    # HTTP header activation tests
 │   └── integration/               # Integration tests (3/3 passing)
 │       └── test_payment_flow.py   # End-to-end payment flow over HTTP
-├── _PLANNING_/                    # Design documents
-│   ├── ARCHITECTURE_DECISION.md   # Why we use upstream x402-a2a
-│   ├── ARCHITECTURE_ANALYSIS.md   # Initial architecture analysis
-│   ├── DESIGN_PROPOSAL.md         # Original design proposal
-│   ├── SPEC_COMPLIANCE_REPORT.md  # Spec compliance tracking
-│   └── FUTURE_WORK.md             # Future enhancements
 ├── ARCHITECTURE.md                # Technical architecture documentation
 ├── CONTRIBUTING.md                # Development setup and workflow
 ├── README.md                      # This file
 ├── pytest.ini                     # Pytest configuration
 └── requirements.txt               # Python dependencies
 ```
-
-**Note**: We use the upstream [`x402-a2a` package](https://github.com/google-agentic-commerce/a2a-x402/tree/main/python) for types and constants. See [_PLANNING_/ARCHITECTURE_DECISION.md](_PLANNING_/ARCHITECTURE_DECISION.md) for rationale.
 
 ## Key Design Decisions
 
@@ -330,8 +320,8 @@ Middleware catches and converts to spec-compliant INPUT_REQUIRED response.
 
 ## Dependencies
 
-- **python-a2a** (>=0.5.10): Python implementation of Google's A2A protocol (by themanojdesai)
-- **x402-a2a** (>=1.0.0): Upstream x402 types and constants (Google/Coinbase)
+- **python-a2a** (>=0.5.10): Python implementation of Google's A2A protocol
+- **x402-a2a** (>=1.0.0): Upstream x402 types and constants
 - **eth-account** (>=0.13.7): Ethereum wallet and signing
 - **httpx** (>=0.28.1): HTTP client
 - **pydantic** (>=2.0.0): Data validation
@@ -414,7 +404,7 @@ See [tests/README.md](tests/README.md) for comprehensive testing documentation.
 
 ## Production Considerations
 
-⚠️ **This is a demonstration/MVP (100% core spec-compliant)**
+⚠️ **This is a demonstration/MVP**
 
 ### Security Requirements for Production
 
@@ -442,7 +432,7 @@ See [tests/README.md](tests/README.md) for comprehensive testing documentation.
 
 ## License
 
-Apache 2.0
+MIT
 
 ## Documentation
 
@@ -456,10 +446,6 @@ Apache 2.0
   - Error handling flowcharts
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Development setup and workflow
 - **[tests/README.md](tests/README.md)** - Testing guide and best practices
-- **[_PLANNING_/](_PLANNING_/)** - Design decisions and planning documents:
-  - [ARCHITECTURE_DECISION.md](_PLANNING_/ARCHITECTURE_DECISION.md) - Why we use upstream x402-a2a
-  - [SPEC_COMPLIANCE_REPORT.md](_PLANNING_/SPEC_COMPLIANCE_REPORT.md) - Spec compliance tracking
-  - [FUTURE_WORK.md](_PLANNING_/FUTURE_WORK.md) - Planned enhancements
 
 ## References
 

@@ -1,10 +1,10 @@
 # Architecture Documentation
 
-This document provides a comprehensive overview of the python-a2a-x402-mvp implementation architecture, payment flow, and component interactions.
+This document provides a comprehensive overview of the python-a2a-x402 implementation architecture, payment flow, and component interactions.
 
 ## System Overview
 
-The python-a2a-x402-mvp implements the x402 Payments Extension for the A2A (Agent-to-Agent) protocol, enabling cryptocurrency payments for agent services using the python-a2a framework.
+The python-a2a-x402 implements the x402 Payments Extension for the A2A (Agent-to-Agent) protocol, enabling cryptocurrency payments for agent services using the python-a2a framework.
 
 ### Core Components
 

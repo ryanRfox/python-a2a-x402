@@ -395,7 +395,7 @@ class x402PaymentMiddleware:
             return True
 
         # Store creation time with requirements for validation
-        # For MVP, we accept all payments within reasonable time
+        # For this demo, we accept all payments within reasonable time
         # Production should track requirement creation timestamp
         logger.info(
             f"Payment expiry validation: maxTimeoutSeconds={max_timeout}"

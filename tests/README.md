@@ -1,6 +1,6 @@
 # Testing Guide
 
-This document describes the test infrastructure and how to run tests for the python-a2a-x402-mvp project.
+This document describes the test infrastructure and how to run tests for the python-a2a-x402 project.
 
 ## Test Structure
 
